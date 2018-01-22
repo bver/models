@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # Copyright 2016 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -84,7 +86,7 @@ def _LoadModel(gd_file, ckpt_file):
   with tf.Graph().as_default():
     sys.stderr.write('Recovering graph.\n')
     with tf.gfile.FastGFile(gd_file, 'r') as f:
-      s = f.read().decode()
+      s = f.read() # .decode()
       gd = tf.GraphDef()
       text_format.Merge(s, gd)
 
